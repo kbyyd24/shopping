@@ -1,5 +1,7 @@
 package cn.gaoyuexiang.controller;
 
+import java.util.List;
+
 import cn.gaoyuexiang.model.Item;
 import cn.gaoyuexiang.service.ItemService;
 import com.google.common.collect.Lists;
@@ -8,9 +10,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-
-import java.util.List;
-
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;

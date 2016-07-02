@@ -1,3 +1,7 @@
+
+shopping [![Build Status](https://travis-ci.org/kbyyd24/shopping-ui.png)](https://travis-ci.org/kbyyd24/shopping-ui)
+========
+
 收银机 - G1 - 全单满100减10块
 
 面试作业
