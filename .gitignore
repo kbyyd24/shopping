@@ -1,5 +1,8 @@
 .idea
-target
-node_modules
-bower_template
+backEnd/target
 *.iml
+frontEnd/node_modules
+frontEnd/dist
+frontEnd/.tmp
+frontEnd/.sass-cache
+frontEnd/bower_components
