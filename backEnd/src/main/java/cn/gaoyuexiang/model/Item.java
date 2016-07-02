@@ -12,6 +12,8 @@ public class Item {
 	private String subCategory;
 	private double price;
 
+	public Item() {}
+
 	public Item(String barcode, String name, String unit, String category, String subCategory, double price) {
 		this.barcode = barcode;
 		this.name = name;
