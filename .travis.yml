@@ -2,4 +2,3 @@ language: java
 script: "mvn clean install -U"
 jdk:
   - oraclejdk8
-  - openjdk8
