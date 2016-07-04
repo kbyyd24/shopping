@@ -1,8 +1,8 @@
 .idea
-backEnd/target
 *.iml
 frontEnd/node_modules
 frontEnd/dist
 frontEnd/.tmp
 frontEnd/.sass-cache
 frontEnd/bower_components
+target/
