@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,10 +16,11 @@ public class ItemService {
 	public List<Item> getItems() {
 
 		ArrayList<Item> items = new ArrayList<>(10);
-		File itemsFile = new File("/home/melo/IdeaProjects/shopping/src/main/resources/items.json");
+		InputStream itemsStream = getClass().getResourceAsStream("/items.json");
+		File itemsFile = new File("/items.json");
 		try {
 			ObjectMapper objMapper = new ObjectMapper();
-			JsonNode jsonNode = objMapper.readTree(itemsFile);
+			JsonNode jsonNode = objMapper.readTree(itemsStream);
 			for (JsonNode aJsonNode : jsonNode) {
 				Item item = objMapper.readValue(aJsonNode.toString(), Item.class);
 				items.add(item);
