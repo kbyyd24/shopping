@@ -49,11 +49,11 @@
   },
   {
     "barcode":"ITEM00006",
-    "name":"科比II",
-    "unit":"双",
-    "category":"服装",
-    "subCategory":"篮球鞋",
-    "price":1599.00
+    "name":"雀巢拿铁",
+    "unit":"瓶",
+    "category":"食品",
+    "subCategory":"饮料",
+    "price":6.00
   },
   {
     "barcode":"ITEM00007",
@@ -65,18 +65,18 @@
   },
   {
     "barcode":"ITEM00008",
-    "name":"SurfaceBook",
-    "unit":"台",
-    "category":"电脑",
-    "subCategory":"笔记本",
-    "price":17499.00
+    "name":"小米耳机",
+    "unit":"副",
+    "category":"手机配件",
+    "subCategory":"耳机",
+    "price":49.00
   },
   {
     "barcode":"ITEM00009",
-    "name":"红米Note4",
-    "unit":"部",
-    "category":"3C产品",
-    "subCategory":"手机",
-    "price":999.00
+    "name":"马克杯",
+    "unit":"杯",
+    "category":"生活用品",
+    "subCategory":"水杯",
+    "price":39.00
   }
 ]
