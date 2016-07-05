@@ -14,7 +14,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
  * Created by melo on 16-7-5.
  */
 @RestController
-@RequestMapping(value = "/onSale")
+@RequestMapping(value = "/sale")
 public class OnSaleController {
 
 	private OnSaleService onSaleService;
@@ -24,7 +24,7 @@ public class OnSaleController {
 		this.onSaleService = onSaleService;
 	}
 
-	@RequestMapping(method = GET)
+	@RequestMapping(value = "/rule", method = GET)
 	public List<OnSaleMsg> sendMsg() {
 		return onSaleService.loadMsg();
 	}
