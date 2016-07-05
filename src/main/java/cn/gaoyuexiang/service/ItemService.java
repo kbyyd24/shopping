@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -17,7 +16,6 @@ public class ItemService {
 
 		ArrayList<Item> items = new ArrayList<>(10);
 		InputStream itemsStream = getClass().getResourceAsStream("/items.json");
-		File itemsFile = new File("/items.json");
 		try {
 			ObjectMapper objMapper = new ObjectMapper();
 			JsonNode jsonNode = objMapper.readTree(itemsStream);
@@ -25,6 +23,7 @@ public class ItemService {
 				Item item = objMapper.readValue(aJsonNode.toString(), Item.class);
 				items.add(item);
 			}
+			itemsStream.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
