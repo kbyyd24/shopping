@@ -26,7 +26,7 @@ public class OnSaleServiceTest {
 	public void get_on_sale_msgs() throws Exception {
 		List<OnSaleMsg> onSaleMsgs = service.loadMsg();
 		for (OnSaleMsg onSaleMsg : onSaleMsgs) {
-			assertThat(onSaleMsg.getType(), isA(String.class));
+			assertThat(onSaleMsg.getName(), isA(String.class));
 		}
 	}
 }
