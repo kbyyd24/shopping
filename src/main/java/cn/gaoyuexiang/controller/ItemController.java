@@ -21,24 +21,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RestController
 @RequestMapping("/item")
-/*public class ItemController {
-	private ItemService itemService;
-	private HttpServletResponse rps=ServletActionContext.getResponse();
-	@ModelAttribute
-	public void  SetVaryResponseHeader(HttpServletResponse response){
-		response.addHeader("Access-Control-Allow-Origin","*");
-	}
-	@Autowired
-	public ItemController(ItemService itemService) {
-		this.itemService = itemService;
-	}
-	@ResponseBody
-	@RequestMapping(method = GET)
-	public List<Item> getItems() {
-		SetVaryResponseHeader(rps);
-		return itemService.getItems();
-	}
-}*/
+
 public class ItemController {
 	private ItemService itemService;
 	@Autowired
