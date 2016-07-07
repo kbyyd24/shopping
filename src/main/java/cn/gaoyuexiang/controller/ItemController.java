@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import javax.servlet.http.HttpServletResponse;
+//import javax.servlet.http.HttpServletResponse;
 import java.util.List;
-import org.apache.struts2.ServletActionContext;
+//import org.apache.struts2.ServletActionContext;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
@@ -21,7 +21,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RestController
 @RequestMapping("/item")
-public class ItemController {
+/*public class ItemController {
 	private ItemService itemService;
 	private HttpServletResponse rps=ServletActionContext.getResponse();
 	@ModelAttribute
@@ -36,6 +36,19 @@ public class ItemController {
 	@RequestMapping(method = GET)
 	public List<Item> getItems() {
 		SetVaryResponseHeader(rps);
+		return itemService.getItems();
+	}
+}*/
+public class ItemController {
+	private ItemService itemService;
+	@Autowired
+	public ItemController(ItemService itemService) {
+		this.itemService = itemService;
+	}
+	@ResponseBody
+	@CrossOrigin
+	@RequestMapping(method = GET)
+	public List<Item> getItems() {
 		return itemService.getItems();
 	}
 }

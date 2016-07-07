@@ -3,6 +3,7 @@ package cn.gaoyuexiang.controller;
 import cn.gaoyuexiang.model.OnSaleMsg;
 import cn.gaoyuexiang.service.OnSaleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,7 +15,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
  * Created by melo on 16-7-5.
  */
 @RestController
-@RequestMapping(value = "/sale")
+@RequestMapping("/rules")
 public class OnSaleController {
 
 	private OnSaleService onSaleService;
@@ -24,7 +25,8 @@ public class OnSaleController {
 		this.onSaleService = onSaleService;
 	}
 
-	@RequestMapping(value = "/rule", method = GET)
+	@RequestMapping( method = GET)
+	@CrossOrigin
 	public List<OnSaleMsg> sendMsg() {
 		return onSaleService.loadMsg();
 	}
