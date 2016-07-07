@@ -1,6 +1,7 @@
 [
   {
-    "type":"FULL_ONE_HUNDRED_MINUS_TEN",
+    "name":"满一百减十块",
+    "type":1,
     "barcodes":[
       "ITEM00000",
       "ITEM00001",
