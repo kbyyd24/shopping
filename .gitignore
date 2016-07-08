@@ -6,3 +6,5 @@ frontEnd/.tmp
 frontEnd/.sass-cache
 frontEnd/bower_components
 target/
+shopping.ipr
+shopping.iws
