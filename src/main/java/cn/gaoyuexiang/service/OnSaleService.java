@@ -1,7 +1,8 @@
 package cn.gaoyuexiang.service;
 
-import cn.gaoyuexiang.model.OnSaleMsg;
+import cn.gaoyuexiang.model.OnSaleInfo;
 import com.fasterxml.jackson.core.type.TypeReference;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
@@ -14,11 +15,16 @@ import java.util.List;
 public class OnSaleService {
 
 	public static final String ON_SALE_DB = "/onSale.json";
+	private final SerializableService serializableService;
 
-	public List<OnSaleMsg> loadMsg() {
+	@Autowired
+	public OnSaleService(SerializableService serializableService) {
+		this.serializableService = serializableService;
+	}
+
+	public List<OnSaleInfo> getSaleInfos() {
 		InputStream onSaleStream = getClass().getResourceAsStream(ON_SALE_DB);
-//		return new SerializableService().convertTo(onSaleStream, OnSaleMsg.class);
-		return new SerializableService().convertTo(onSaleStream, new TypeReference<List<OnSaleMsg>>() {
+		return serializableService.convertTo(onSaleStream, new TypeReference<List<OnSaleInfo>>() {
 		});
 	}
 }

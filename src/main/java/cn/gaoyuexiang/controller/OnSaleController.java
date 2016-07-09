@@ -1,6 +1,6 @@
 package cn.gaoyuexiang.controller;
 
-import cn.gaoyuexiang.model.OnSaleMsg;
+import cn.gaoyuexiang.model.OnSaleInfo;
 import cn.gaoyuexiang.service.OnSaleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -27,7 +27,7 @@ public class OnSaleController {
 
 	@RequestMapping( method = GET)
 	@CrossOrigin
-	public List<OnSaleMsg> sendMsg() {
-		return onSaleService.loadMsg();
+	public List<OnSaleInfo> sendMsg() {
+		return onSaleService.getSaleInfos();
 	}
 }

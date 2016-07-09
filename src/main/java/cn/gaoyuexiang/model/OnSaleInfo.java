@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by melo on 16-7-5.
  */
-public class OnSaleMsg {
+public class OnSaleInfo {
 	private int type;
 	private String name;
 	private List<String> barcodes;

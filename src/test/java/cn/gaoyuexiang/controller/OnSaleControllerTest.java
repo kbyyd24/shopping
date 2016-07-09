@@ -1,6 +1,6 @@
 package cn.gaoyuexiang.controller;
 
-import cn.gaoyuexiang.model.OnSaleMsg;
+import cn.gaoyuexiang.model.OnSaleInfo;
 import cn.gaoyuexiang.service.OnSaleService;
 import org.junit.Before;
 import org.junit.Test;
@@ -33,10 +33,10 @@ public class OnSaleControllerTest {
 
 	@Test
 	public void should_get_all_on_sale_msg() throws Exception {
-		List<OnSaleMsg> msgs = new ArrayList<>();
-		when(onSaleService.loadMsg()).thenReturn(msgs);
+		List<OnSaleInfo> msgs = new ArrayList<>();
+		when(onSaleService.getSaleInfos()).thenReturn(msgs);
 
-		List<OnSaleMsg> result = onSaleController.sendMsg();
+		List<OnSaleInfo> result = onSaleController.sendMsg();
 
 		assertThat(result, is(msgs));
 	}
