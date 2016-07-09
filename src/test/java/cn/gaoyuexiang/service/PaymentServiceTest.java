@@ -3,6 +3,7 @@ package cn.gaoyuexiang.service;
 import cn.gaoyuexiang.model.PaymentRequest;
 import cn.gaoyuexiang.model.PaymentResult;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -22,6 +23,7 @@ public class PaymentServiceTest {
 	}
 
 	@Test
+	@Ignore
 	public void payment() throws Exception {
 		// TODO: 16-7-9 test the method
 		PaymentRequest paymentRequest = new PaymentRequest();
