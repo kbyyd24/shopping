@@ -11,12 +11,17 @@ import java.io.InputStream;
 @Service
 public class SerializableService {
 
-	public <T> T SerializableService(InputStream itemsStream, TypeReference<T> typeRef) {
+	public <T> T convertTo(InputStream stream, TypeReference<T> typeRef) {
 		ObjectMapper objMapper = new ObjectMapper();
 		try {
-			return objMapper.readValue(itemsStream, typeRef);
+			return objMapper.readValue(stream, typeRef);
 		} catch (IOException e) {
 			throw new StorageException();
 		}
+	}
+
+	public <T> T convertTo(InputStream stream, Class<T> tClass) {
+		return convertTo(stream, new TypeReference<T>() {
+		});
 	}
 }
