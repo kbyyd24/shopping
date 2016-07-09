@@ -20,7 +20,7 @@ public class ItemService {
 
 	public List<Item> getItems() {
 		InputStream itemsStream = getClass().getResourceAsStream(ITEM_DB);
-		return serializableService.SerializableService(itemsStream, new TypeReference<List<Item>>() {
+		return serializableService.convertTo(itemsStream, new TypeReference<List<Item>>() {
 		});
 	}
 

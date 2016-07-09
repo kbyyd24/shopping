@@ -1,13 +1,10 @@
 package cn.gaoyuexiang.service;
 
 import cn.gaoyuexiang.model.OnSaleMsg;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,20 +12,13 @@ import java.util.List;
  */
 @Service
 public class OnSaleService {
+
+	public static final String ON_SALE_DB = "/onSale.json";
+
 	public List<OnSaleMsg> loadMsg() {
-		InputStream onSaleStream = getClass().getResourceAsStream("/onSale.json");
-		ArrayList<OnSaleMsg> msgs = new ArrayList<>();
-		try {
-			ObjectMapper mapper = new ObjectMapper();
-			JsonNode onSaleNodes = mapper.readTree(onSaleStream);
-			for (JsonNode onSaleNode : onSaleNodes) {
-				OnSaleMsg onSaleMsg = mapper.readValue(onSaleNode.toString(), OnSaleMsg.class);
-				msgs.add(onSaleMsg);
-			}
-			onSaleStream.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return msgs;
+		InputStream onSaleStream = getClass().getResourceAsStream(ON_SALE_DB);
+//		return new SerializableService().convertTo(onSaleStream, OnSaleMsg.class);
+		return new SerializableService().convertTo(onSaleStream, new TypeReference<List<OnSaleMsg>>() {
+		});
 	}
 }
