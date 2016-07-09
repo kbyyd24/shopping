@@ -9,12 +9,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
 
-import static org.hamcrest.Matchers.isA;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-/**
- * Created by melo on 16-7-5.
- */
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring/spring.xml"})
 public class OnSaleServiceTest {
@@ -25,8 +23,8 @@ public class OnSaleServiceTest {
 	@Test
 	public void get_on_sale_msgs() throws Exception {
 		List<OnSaleMsg> onSaleMsgs = service.loadMsg();
-		for (OnSaleMsg onSaleMsg : onSaleMsgs) {
-			assertThat(onSaleMsg.getName(), isA(String.class));
-		}
+		assertThat(onSaleMsgs.size(), is(1));
+		assertThat(onSaleMsgs.get(0).getName(), is("满一百减十块"));
+		assertThat(onSaleMsgs.get(0).getBarcodes().get(0), is("ITEM00000"));
 	}
 }
