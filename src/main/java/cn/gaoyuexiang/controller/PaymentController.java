@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/payment")
 public class PaymentController {
 
@@ -21,9 +22,8 @@ public class PaymentController {
 	public PaymentController(PaymentService paymentService) {
 		this.paymentService = paymentService;
 	}
-
-	@RequestMapping(method = POST)
 	@CrossOrigin
+	@RequestMapping(method = POST)
 	public PaymentResult payment(@RequestBody PaymentRequest paymentRequest) {
 		return paymentService.payment(paymentRequest);
 	}
