@@ -30,10 +30,10 @@ public class PaymentService {
 
 			total += price * amount;
 
+			// TODO: 16-7-9 use Item
+			paymentResult.addResultItem(new ResultItem(name, price, unit, amount));
 			if (paymentItem.getSaleInfo() != null && paymentItem.getSaleInfo().getType() == 1) {
 				saleTotal += price * amount;
-				// TODO: 16-7-9 use Item
-				paymentResult.addResultItem(new ResultItem(name, price, unit, amount));
 			} else {
 				paymentResult.addNoSaleItem(new NoSaleItem(name, price * amount));
 			}
