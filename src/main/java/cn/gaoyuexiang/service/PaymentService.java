@@ -40,12 +40,9 @@ public class PaymentService {
 
 		}
 
-		double sale = 0;
-
-		if (saleTotal > 99) {
-			sale = saleTotal / 100 * 10;
-			saleTotal = saleTotal - sale;
-		}
+		int sale = (int) saleTotal / 100 * 10;
+		saleTotal -= sale;
+		total -= sale;
 
 		paymentResult.getNoSaleResult().setSale(sale);
 		paymentResult.getNoSaleResult().setSum(saleTotal);
