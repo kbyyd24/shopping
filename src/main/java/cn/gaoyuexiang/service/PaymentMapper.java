@@ -8,6 +8,7 @@ import cn.gaoyuexiang.model.PaymentRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -27,15 +28,28 @@ public class PaymentMapper {
 		List<OnSaleInfo> onSaleInfos = onSaleService.getSaleInfos();
 		List<Item> allItems = itemService.getItems();
 
-		return paymentRequest.getItems()
+		HashMap<String, PaymentItem> paymentItemMap = new HashMap<>();
+
+		paymentRequest.getItems()
 						.stream()
 						.map(item -> {
 							PaymentItem paymentItem = parsePayment(item, allItems);
 							OnSaleInfo saleInfo = getSaleByBarcode(onSaleInfos, paymentItem.getItem());
 							paymentItem.setSaleInfo(saleInfo);
+							String barcode = paymentItem.getItem().getBarcode();
+							if (paymentItemMap.containsKey(barcode)) {
+								paymentItem.setAmount(paymentItemMap.get(barcode).getAmount() + paymentItem.getAmount());
+								paymentItemMap.put(barcode,paymentItem);
+							} else paymentItemMap.put(barcode, paymentItem);
 							return paymentItem;
 						})
 						.collect(Collectors.toList());
+
+		return paymentItemMap.values()
+						.stream()
+						.map(item -> item)
+						.collect(Collectors.toList());
+
 	}
 
 	private OnSaleInfo getSaleByBarcode(List<OnSaleInfo> onSaleInfoes, Item item) {
