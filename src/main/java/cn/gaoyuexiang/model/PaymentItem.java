@@ -25,4 +25,8 @@ public class PaymentItem {
 	public OnSaleInfo getSaleInfo() {
 		return saleInfo;
 	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
 }
