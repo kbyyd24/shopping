@@ -20,12 +20,7 @@ public class PaymentService {
 
 	public PaymentResult payment(PaymentRequest paymentRequest, FullOff fullOff) {
 		List<PaymentItem> paymentItems = paymentMapper.map(paymentRequest);
-<<<<<<< HEAD
 		return fullOff.calculate(paymentItems);
-=======
-		return new FullOff().calculate(paymentItems);
->>>>>>> cfedffe... [N/A] 抽离计算总计的代码
-
 	}
 
 }
