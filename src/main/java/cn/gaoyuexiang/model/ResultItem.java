@@ -5,12 +5,12 @@ public class ResultItem {
 	private String name;
 	private double price;
 	private String unit;
-	private final int amount;
+	private int amount;
 
-	public ResultItem(String name, double price, String unit, int amount) {
-		this.name = name;
-		this.price = price;
-		this.unit = unit;
+	public ResultItem(Item item, int amount) {
+		this.name = item.getName();
+		this.price = item.getPrice();
+		this.unit = item.getUnit();
 		this.amount = amount;
 	}
 

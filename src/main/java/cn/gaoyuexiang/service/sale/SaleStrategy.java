@@ -1,4 +1,10 @@
 package cn.gaoyuexiang.service.sale;
 
-public interface SaleService {
+import cn.gaoyuexiang.model.PaymentItem;
+import cn.gaoyuexiang.model.PaymentResult;
+
+import java.util.List;
+
+public interface SaleStrategy {
+	PaymentResult calculate(List<PaymentItem> items);
 }

@@ -15,7 +15,7 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring/spring.xml"})
-public class OnSaleServiceTest {
+public class OnSaleStrategyTest {
 
 	@Autowired
 	private OnSaleService service;

@@ -35,6 +35,7 @@ public class PaymentResult {
 
 	public void setSale(double sale) {
 		this.sale = sale;
+		this.noSaleResult.setSale(sale);
 	}
 
 	public double getTotal() {
@@ -43,5 +44,13 @@ public class PaymentResult {
 
 	public void setTotal(double total) {
 		this.total = total;
+	}
+
+	public void setNoSaleSum(double sum) {
+		noSaleResult.setSum(sum);
+	}
+
+	public double getNoSaleSum() {
+		return noSaleResult.getSum();
 	}
 }
