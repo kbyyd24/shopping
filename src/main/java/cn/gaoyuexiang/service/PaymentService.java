@@ -18,9 +18,9 @@ public class PaymentService {
 		this.paymentMapper = paymentMapper;
 	}
 
-	public PaymentResult payment(PaymentRequest paymentRequest) {
+	public PaymentResult payment(PaymentRequest paymentRequest, FullOff fullOff) {
 		List<PaymentItem> paymentItems = paymentMapper.map(paymentRequest);
-		return new FullOff().calculate(paymentItems);
+		return fullOff.calculate(paymentItems);
 
 	}
 

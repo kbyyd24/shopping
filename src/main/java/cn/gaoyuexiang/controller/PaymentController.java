@@ -3,6 +3,7 @@ package cn.gaoyuexiang.controller;
 import cn.gaoyuexiang.model.PaymentRequest;
 import cn.gaoyuexiang.model.PaymentResult;
 import cn.gaoyuexiang.service.PaymentService;
+import cn.gaoyuexiang.service.sale.FullOff;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,6 +26,6 @@ public class PaymentController {
 	@CrossOrigin
 	@RequestMapping(method = POST)
 	public PaymentResult payment(@RequestBody PaymentRequest paymentRequest) {
-		return paymentService.payment(paymentRequest);
+		return paymentService.payment(paymentRequest, new FullOff());
 	}
 }
